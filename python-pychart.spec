@@ -3,7 +3,7 @@
 Name: 	 	python-%{oname}
 Summary:	Python library for data graphs and charts 	
 Version: 	1.39
-Release: 	%{mkrel 2}
+Release: 	%{mkrel 3}
 Source0:	http://download.gna.org/pychart/PyChart-%{version}.tar.bz2
 URL:		http://home.gna.org/pychart/
 License:	GPLv2+
@@ -12,6 +12,8 @@ BuildRoot:	%{_tmppath}/%{name}-buildroot
 %{py_requires}
 BuildRequires:	python-devel
 BuildArch:	noarch
+Obsoletes:	pychart < %{version}-%{release}
+Provides:	pychart = %{version}-%{release}
 
 %description
 PyChart is a Python library for creating high quality Encapsulated Postscript,

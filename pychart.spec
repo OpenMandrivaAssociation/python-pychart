@@ -1,17 +1,15 @@
-%define name	pychart
-%define version 1.39
-%define release %mkrel 2
+%define oname	pychart
 
-Name: 	 	%{name}
+Name: 	 	python-%{oname}
 Summary:	Python library for data graphs and charts 	
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		http://download.gna.org/pychart/PyChart-%{version}.tar.bz2
-URL:		http://www.hpl.hp.com/personal/Yasushi_Saito/pychart/
-License:	GPL
+Version: 	1.39
+Release: 	%{mkrel 2}
+Source0:	http://download.gna.org/pychart/PyChart-%{version}.tar.bz2
+URL:		http://home.gna.org/pychart/
+License:	GPLv2+
 Group:		Sciences/Mathematics
 BuildRoot:	%{_tmppath}/%{name}-buildroot
+%{py_requires}
 BuildRequires:	python-devel
 BuildArch:	noarch
 
@@ -22,18 +20,19 @@ range-fill plots, and pie charts. Because it is based on Python, you can make
 full use of Python's scripting power.
 
 %prep
-%setup -q -n PyChart-%version
+%setup -q -n PyChart-%{version}
 chmod 644 `find -type f`
 
 %install
-rm -rf $RPM_BUILD_ROOT
-python setup.py install --root=$RPM_BUILD_ROOT
+rm -rf %{buildroot}
+python setup.py install --root=%{buildroot} --compile --optimize=2
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README demos doc COPYING
-%python_sitelib/%name
+%doc README demos doc
+%{py_puresitedir}/%{oname}
+%{py_puresitedir}/PyChart-%{version}-py%{pyver}.egg-info
 

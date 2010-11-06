@@ -3,7 +3,7 @@
 Name: 	 	python-%{oname}
 Summary:	Python library for data graphs and charts 	
 Version: 	1.39
-Release: 	%mkrel 6
+Release: 	%mkrel 7
 Source0:	http://download.gna.org/pychart/PyChart-%{version}.tar.bz2
 URL:		http://home.gna.org/pychart/
 License:	GPLv2+

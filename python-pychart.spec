@@ -6,7 +6,7 @@ Summary:	Python library for data graphs and charts
 Version: 	1.39
 Release: 	9
 Source0:	http://download.gna.org/pychart/PyChart-%{version}.tar.bz2
-URL:		http://home.gna.org/pychart/
+URL:		https://home.gna.org/pychart/
 License:	GPLv2+
 Group:		Sciences/Mathematics
 BuildRequires:	python-devel
